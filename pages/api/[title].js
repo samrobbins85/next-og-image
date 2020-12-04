@@ -1,4 +1,3 @@
-import path from "path";
 const puppeteer = require("puppeteer");
 import absoluteUrl from "next-absolute-url";
 
