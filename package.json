@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.2.1",
     "autoprefixer": "^10.0.4",
     "chrome-aws-lambda": "^5.5.0",
     "copy-webpack-plugin": "^6.3.2",
