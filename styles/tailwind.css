@@ -7,6 +7,10 @@
   width: 60vw;
 }
 
-:root {
-  font-size: calc(60vw / 80);
+.vw {
+  font-size: 4vw;
 }
+
+/* :root {
+  font-size: calc(60vw / 80);
+} */
