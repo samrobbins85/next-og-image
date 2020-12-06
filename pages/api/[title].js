@@ -3,7 +3,7 @@ const chromium = require("chrome-aws-lambda");
 
 export default async function (req, res) {
   const {
-    query: { title },
+    query: { title, dark },
   } = req;
   const { origin } = absoluteUrl(req, "localhost:3000");
   const browser = await chromium.puppeteer.launch({
@@ -13,7 +13,7 @@ export default async function (req, res) {
     ignoreHTTPSErrors: true,
   });
   const page = await browser.newPage();
-  await page.goto(origin + "/" + title);
+  await page.goto(origin + "/" + title + (dark === "true" ? "?dark=true" : ""));
   await page.setViewport({ width: 1200, height: 627 });
   const imageBuffer = await page.screenshot();
 
