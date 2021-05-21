@@ -5,6 +5,7 @@ import { Switch } from "@headlessui/react";
 export default function Home() {
   const [title, setTitle] = useState("Set a title");
   const [switchValue, setSwitchValue] = useState(false);
+  const [image, setImage] = useState("Set a Title");
   return (
     <>
       <Head>
@@ -15,15 +16,19 @@ export default function Home() {
           Next.js open graph image as a service
         </h1>
       </div>
-      <div
-        className={`aspect border mx-auto mt-12 grid ${
-          switchValue ? "bg-black text-white" : undefined
-        }`}
-      >
-        <div className="place-self-center justify-self-center text-center font-semibold vw">
-          {title}
-        </div>
+      <div className="flex justify-center py-4">
+        {title !== "" ? (
+          <img
+            src={`https://og.samrobbins.uk/api/${image}${
+              switchValue ? "?dark=true" : ""
+            }`}
+            className="border border-black"
+          />
+        ) : (
+          <p className="text-center text-2xl">Start typing to see the image</p>
+        )}
       </div>
+
       <div className="flex justify-center pt-4 px-2 gap-4">
         <label>
           <span className="pr-2 text-lg">Title:</span>
@@ -52,6 +57,12 @@ export default function Home() {
             )}
           </Switch>
         </Switch.Group>
+        <button
+          onClick={() => setImage(title)}
+          className="px-4 py-2 border hover:bg-gray-200"
+        >
+          Update the image
+        </button>
       </div>
       <div className="flex justify-center px-2">
         <span className="text-lg">
