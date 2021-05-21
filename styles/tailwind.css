@@ -2,6 +2,16 @@
 @tailwind utilities;
 @tailwind components;
 
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
 .aspect {
   height: 30vw;
   width: 60vw;
@@ -10,7 +20,3 @@
 .vw {
   font-size: 4vw;
 }
-
-/* :root {
-  font-size: calc(60vw / 80);
-} */

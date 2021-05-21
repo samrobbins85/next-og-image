@@ -21,7 +21,7 @@ export default async function (req, res) {
   res.setHeader("Content-Type", "image/jpg");
   res.setHeader(
     "Cache-Control",
-    `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
+    `public, immutable, no-transform, s-maxage=2592000, max-age=2592000`
   );
   res.send(imageBuffer);
 }
