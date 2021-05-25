@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Head from "next/head";
 import { Switch } from "@headlessui/react";
-
+import { debounce } from "underscore";
 export default function Home() {
   const [title, setTitle] = useState("Set a title");
   const [switchValue, setSwitchValue] = useState(false);
   const [image, setImage] = useState("Set a Title");
+  useEffect(() => {
+    passTitle(title);
+  }, [title]);
+
+  const passTitle = useCallback(
+    debounce((text) => {
+      setImage(text);
+    }, 500),
+    []
+  );
+
   return (
     <>
       <Head>
@@ -28,12 +39,6 @@ export default function Home() {
                 onChange={(event) => setTitle(event.target.value)}
               />
             </label>
-            <button
-              onClick={() => setImage(title)}
-              className="ml-2 px-4 py-2 border hover:bg-gray-200"
-            >
-              Update
-            </button>
           </div>
           <Switch.Group
             as="div"
